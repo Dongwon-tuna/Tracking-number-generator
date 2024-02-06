@@ -3,7 +3,7 @@
 
 int main()
 {
-    char str[] = "ê°€ë‚˜ë‹¤ë¼|ë§ˆë°”ì‚¬ì•„|1234|5678";
+    char str[] = "°¡³ª´Ù¶ó|¸¶¹Ù»ç¾Æ|1234|5678";
     char* ptr = strchr(str, '|'); 
     int count = 0;
 
@@ -14,7 +14,7 @@ int main()
         count++;
     }
 
-    printf("ì°¾ì€ ë¬¸ì %dê°œ", count);
+    printf("Ã£Àº ¹®ÀÚ %d°³", count);
 
     return 0;
 }
