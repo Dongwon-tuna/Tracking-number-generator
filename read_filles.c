@@ -5,9 +5,9 @@
 void Eliminate(char *str)
 {    
     int len = strlen(str) + 1;
-    for (; *str != '\0'; str++,len--)//종료 문자를 만날 때까지 반복
+    for (; *str != '\0'; str++,len--)
     {
-        if (*str == '|')//ch와 같은 문자일 때
+        if (*str == '|')
         {
             strcpy_s(str, len,str + 1);
             str--;            
