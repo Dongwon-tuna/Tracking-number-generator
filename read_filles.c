@@ -1,6 +1,7 @@
 #pragma warning(disable :4996)
 #include <stdio.h>
 #include <string.h>
+#define MAX_FIELDS 30  
 /*
 typedef struct info_list
 {
@@ -18,21 +19,6 @@ typedef struct info_list
 };list;
 */
 
-void Eliminate(char *str)
-{    
-    int len = strlen(str) + 1;
-    
-    for (; *str != '\0'; str++,len--)
-    {   
-        if (*str == '|')
-        {
-            strcpy_s(str, len,str + 1);
-            printf("%s\n", str); 
-            str--;   
-        }
-
-    }
-}
 
 
 int main()
@@ -47,10 +33,27 @@ int main()
     while (fgets(buffer, 256, fp))
     {
         
-        
-        
-        Eliminate(buffer);
-        printf("%s\n",buffer);
+        char *fields[MAX_FIELDS];
+        char *token = strtok(buffer, "|");
+        int field_count = 0;
+
+        while (token != NULL && field_count < MAX_FIELDS) {
+       
+        fields[field_count] = token;
+
+        token = strtok(NULL, "|");
+
+        field_count++;
+        }
+
+        printf("ÆÄ½ÌµÈ Á¤º¸:\n");
+        for (int i = 0; i < field_count; i++) {
+            if (fields[i] != NULL) {
+                printf("Field %d: %s\n", i , fields[i]);
+            } else {
+                printf("Field %d: NULL\n", i );
+            }
+        }
         
     }
     fclose(fp);

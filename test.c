@@ -16,16 +16,14 @@ int main() {
     int field_count = 0;
 
     while (token != NULL && field_count < MAX_FIELDS) {
-        // |와 | 사이에 아무것도 없는 경우 NULL 값으로 처리
-        fields[field_count] = (strcmp(token, "") == 0) ? NULL : token;
+       
+        fields[field_count] = token;
 
-        // 다음 필드로 이동
         token = strtok(NULL, "|");
 
         field_count++;
     }
 
-    // 배열에 저장된 정보 출력
     printf("파싱된 정보:\n");
     for (int i = 0; i < field_count; i++) {
         if (fields[i] != NULL) {
