@@ -46,7 +46,7 @@ int main()
         field_count++;
         }
 
-        printf("ÆÄ½ÌµÈ Á¤º¸:\n");
+        
         for (int i = 0; i < field_count; i++) {
             if (fields[i] != NULL) {
                 printf("Field %d: %s\n", i , fields[i]);
