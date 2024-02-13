@@ -1,33 +1,14 @@
 # Tracking-number-generator
 Cheonan-si package tracking number generator.
 
-<p align="center">
-  <br>
-  <img src="./images/common/logo-sample.jpeg">
-  <br>
-</p>
 
-목차
 
 ## 프로젝트 소개
 
 <p align="justify">
 프로젝트 개요/동기
-</p>
 
-<p align="center">
-GIF Images
-</p>
 
-<br>
-
-## 기술 스택
-
-| C | TypeScript |  React   |  Node   |
-| :--------: | :--------: | :------: | :-----: |
-|   ![C]    |   ![ts]    | ![react] | ![node] |
-
-<br>
 
 ## 구현 기능
 
