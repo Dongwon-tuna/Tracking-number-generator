@@ -16,26 +16,39 @@ int div_number(int num){
 
 int *dec_to_bin(int num){
     static int array[12] = {0,0,0,0,0,0,0,0,0,0,0,0};
-    array[3] = num;
+    int cnt = div_number(num);
+    printf("cnt : %d\n",cnt);
+    int cnt2 = cnt + 1;
+    for (int i = 0; i < cnt2; i++)
+    {
+    cnt = cnt-1;
+    if (num - pow(2,cnt)>=0){ 
+        array[11-cnt] = 1;
+        num = num -pow(2,cnt);
+    }
+    else {
+        array[11-cnt] = 0;
+    }
+    }
     return array;
 
 }
 
+int *key_value(int sec){
+    
+}
+
 int main() {
     int in;
-    
- 
+
     scanf("%d", &in);
-    printf("나누기 완료");
-    printf(": %d\n",div_number(in));
-    int *arr = dec_to_bin(div_number(in));
+    int *arr = dec_to_bin(in);
     for (int i = 0; i < 12; i++)
     {
         
         printf("%d",arr[i]);
     }
     
-
     return 0;
 
 }
