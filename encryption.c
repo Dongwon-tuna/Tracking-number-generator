@@ -17,7 +17,6 @@ int div_number(int num){
 int *dec_to_bin(int num){
     static int array[12] = {0,0,0,0,0,0,0,0,0,0,0,0};
     int cnt = div_number(num);
-    printf("cnt : %d\n",cnt);
     int cnt2 = cnt + 1;
     for (int i = 0; i < cnt2; i++)
     {
@@ -34,20 +33,84 @@ int *dec_to_bin(int num){
 
 }
 
-int *key_value(int sec){
-    
+int *key_value(int num){
+    static int array2[12] = {0,0,0,0,0,0,0,0,0,0,0,0};
+    int cnt = div_number(num);
+    int cnt2 = cnt + 1;
+    for (int i = 0; i < cnt2; i++)
+    {
+    cnt = cnt-1;
+    if (num - pow(2,cnt)>=0){ 
+        array2[11-cnt] = 1;
+        num = num -pow(2,cnt);
+    }
+    else {
+        array2[11-cnt] = 0;
+    }
+    }
+    array2[0] = array2[11];
+    array2[1] = array2[10];
+    array2[2] = array2[9];
+    array2[3] = array2[8];
+    array2[4] = array2[7];
+    array2[5] = array2[6];
+    return array2;
+
 }
 
-int main() {
-    int in;
-
-    scanf("%d", &in);
-    int *arr = dec_to_bin(in);
+int *xor_process(int arr1[], int arr2[]){
+    static int returnarr[12];
     for (int i = 0; i < 12; i++)
     {
         
+        if (arr1[i] == arr2[i])
+        {
+            returnarr[i] = 0;
+        }
+        else{
+            returnarr[i] = 1;
+        }
+        
+    }
+    return returnarr;
+
+}
+
+int bin_to_dec(int arr[]){
+    int size = sizeof(arr)/sizeof(arr[0]);
+    printf("\n%d",size);
+}
+
+
+int main() {
+
+   
+    int in,sec;
+    int result[12];
+
+    scanf("%d", &in);
+    scanf("%d", &sec);
+    int *arr = dec_to_bin(in);
+    int *key = key_value(sec);
+    for (int i = 0; i < 12; i++)
+    {
         printf("%d",arr[i]);
     }
+    printf("\n");
+    for (int i = 0; i < 12; i++)
+    {
+        printf("%d",key[i]);
+    }
+    printf("\n");
+    int *process = xor_process(arr,key);
+    for (int i = 0; i < 12; i++)
+    {
+        printf("%d",process[i]);
+    }
+    bin_to_dec(key);
+
+
+ 
     
     return 0;
 
