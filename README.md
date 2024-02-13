@@ -1,7 +1,7 @@
 # Tracking-number-generator
 ## Cheonan-si package tracking number generator.
 
-### 기능 1
+### 기능 1: XOR 연산의 특징을 활용한 개인정보 암호화
 
 ### 기능 2
 
@@ -11,21 +11,3 @@
 
 <br>
 
-## 배운 점 & 아쉬운 점
-
-<p align="justify">
-
-</p>
-
-<br>
-
-## 라이센스
-
-MIT &copy; [NoHack](mailto:lbjp114@gmail.com)
-
-<!-- Stack Icon Refernces -->
-
-[js]: /images/stack/javascript.svg
-[ts]: /images/stack/typescript.svg
-[react]: /images/stack/react.svg
-[node]: /images/stack/node.svg
