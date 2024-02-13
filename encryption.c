@@ -77,8 +77,14 @@ int *xor_process(int arr1[], int arr2[]){
 }
 
 int bin_to_dec(int arr[]){
-    int size = sizeof(arr)/sizeof(arr[0]);
-    printf("\n%d",size);
+    int sum = 0;
+    for (int i = 0; i < 12; i++)
+    {
+        sum = sum + pow(2,11-i)* arr[i];
+    }
+    
+    
+    printf("\n%d",sum);
 }
 
 
@@ -90,28 +96,18 @@ int main() {
 
     scanf("%d", &in);
     scanf("%d", &sec);
-    int *arr = dec_to_bin(in);
+
+    int *time = dec_to_bin(in);
     int *key = key_value(sec);
+    // XOR 연산의 특성을 이용하여 디코딩 할 수 있다.
+    int *process = xor_process(time,key);
+    int *pro2 = xor_process(process,key);
     for (int i = 0; i < 12; i++)
     {
-        printf("%d",arr[i]);
-    }
-    printf("\n");
-    for (int i = 0; i < 12; i++)
-    {
-        printf("%d",key[i]);
-    }
-    printf("\n");
-    int *process = xor_process(arr,key);
-    for (int i = 0; i < 12; i++)
-    {
-        printf("%d",process[i]);
-    }
-    bin_to_dec(key);
-
-
- 
+        printf("%d",pro2[i]);
     
+    }    
     return 0;
+
 
 }
