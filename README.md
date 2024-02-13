@@ -1,17 +1,6 @@
 # Tracking-number-generator
 ## Cheonan-si package tracking number generator.
 
-
-
-## 프로젝트 소개
-
-<p align="justify">
-프로젝트 개요/동기
-
-
-
-## 구현 기능
-
 ### 기능 1
 
 ### 기능 2
