@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-//xor 연산을 통한 암호화
+//Xor 연산을 통한 암호화
 
 int main() {
     int in, res;
