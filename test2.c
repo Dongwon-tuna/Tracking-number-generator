@@ -1,29 +1,10 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
-char *rearr(char input[]){
-    int length = strlen(input);
-    char *arr = (char *)malloc(sizeof(char)*(length + 1));
+int main()
+{
+    char s1[10] = "Hello";  // 크기가 10인 char형 배열을 선언하고 문자열 할당
 
-    for (int i = 0; i < length; i++)
-    {
-        arr[i] = input[i];
-    }
-    arr[length] = '\0';
-    
+    printf("%c\n", s1[0]);     // Hello: %s로 문자열 출력
 
-}
-
-int main(void){
-    char input;
-    scanf("%s",&input);
-
-    char *resss = rearr(input);
-
-    //printf("%c",ress[0]);
-    free(resss);
-    
-
-
+    return 0;
 }
