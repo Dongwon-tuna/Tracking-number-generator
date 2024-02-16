@@ -4,14 +4,15 @@
 #include <stdlib.h>
 #define MAX_FIELDS 30  
 
+
 //------------------------------------------------------------------------
 struct Zipcode_data
 {
-    char zipcode[10];
-    char d[50];
-    char d_eng[70];
-    char c[6];
-    char c_eng[70];
+    char Id[10];
+    char time[50];
+    char address[70];
+    char zipcode[6];
+    char etc[70];
 
 };
 
@@ -35,6 +36,40 @@ int line_length(){
 }
 
 //----------------------------------------------------------------------------
+int *time_parsing(char time[]){
+
+    char *ptr = strtok(time,"_");
+    static int time_arr[6];
+    int cnt = 0;
+    while (ptr != NULL)
+    {
+        int num1;
+        num1 = atoi(ptr);
+        time_arr[cnt] = num1;
+        ptr = strtok(NULL,"_");
+        cnt ++;
+    }
+    return time_arr;
+    
+}
+
+//-----------------------------------------------------------------------------
+char *address_parsing(char add[]){
+    char *ptr = strtok(add," ");
+    static char add_arr[30];
+    int cnt = 0;
+    while (ptr != NULL)
+    {
+        printf("%s\n",ptr);
+        printf("한줄 출력됨\n");
+  
+        ptr = strtok(NULL," ");
+        cnt ++;
+    }
+    return add_arr;
+    
+}
+//-----------------------------------------------------------------------------
 int main()
 {
     struct Zipcode_data *data;
@@ -64,20 +99,27 @@ int main()
             field_count++;
         }
 
-        strcpy((data + row)->zipcode, fields[0]);
-        strcpy((data + row)->d, fields[1]);
-        strcpy((data + row)->d_eng, fields[2]);
-        strcpy((data + row)->c, fields[3]);
-        strcpy((data + row)->c_eng, fields[4]);
+        strcpy((data + row)->Id, fields[0]);
+        strcpy((data + row)->time, fields[1]);
+        strcpy((data + row)->address, fields[2]);
+        strcpy((data + row)->zipcode, fields[3]);
+        strcpy((data + row)->etc, fields[4]);
 
         row++;
 
     }
 
-    for (int i = 0; i < row_num -1; i++)
+    for (int i = 0; i < row_num; i++)
     {
-        printf("1: %s 2: %s 3: %s 4: %s 5: %s\n",(data+i)->zipcode,(data+i)->d, (data+i)->d_eng, (data+i)->c,(data+i)->c_eng );
+        printf("1: %s 2: %s 3: %s 4: %s 5: %s\n",(data+i)->Id,(data+i)->time, (data+i)->address, (data+i)->zipcode,(data+i)->etc);
+    
+        int *time_p = time_parsing((data+i)->time);
+        printf("%d\n",time_p[3]*100 + time_p[4]);
+        char *add_p = address_parsing((data+i)->address);
+        printf("%s %s %s",add_p[0],add_p[1],add_p[2]);
+    
     }
+
     
     fclose(fp);
     free(data);
