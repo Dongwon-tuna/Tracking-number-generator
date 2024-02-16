@@ -54,19 +54,20 @@ int *time_parsing(char time[]){
 }
 
 //-----------------------------------------------------------------------------
-char *address_parsing(char add[]){
+const char *address_parsing(char add[]){
     char *ptr = strtok(add," ");
-    static char add_arr[30];
+    static char *add_arr[10];
     int cnt = 0;
     while (ptr != NULL)
     {
-        printf("%s\n",ptr);
-        printf("한줄 출력됨\n");
-  
+        //printf("%s\n",ptr);
+        add_arr[cnt]= ptr ;
+        //printf("%s\n",add_arr[cnt]);
         ptr = strtok(NULL," ");
         cnt ++;
     }
-    return add_arr;
+    printf("%s",add_arr[3]);
+    return *add_arr;
     
 }
 //-----------------------------------------------------------------------------
@@ -116,7 +117,7 @@ int main()
         int *time_p = time_parsing((data+i)->time);
         printf("%d\n",time_p[3]*100 + time_p[4]);
         char *add_p = address_parsing((data+i)->address);
-        printf("%s %s %s",add_p[0],add_p[1],add_p[2]);
+        printf("%s",add_p[1]);
     
     }
 
