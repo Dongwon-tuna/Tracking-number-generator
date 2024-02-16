@@ -8,8 +8,8 @@
 struct Zipcode_data
 {
     char zipcode[10];
-    char d[30];
-    char d_eng[30];
+    char d[50];
+    char d_eng[50];
     char c[20];
     char c_eng[20];
 
@@ -40,10 +40,11 @@ int main()
     struct Zipcode_data *data;
     int row =0;
     FILE* fp;
-    fp = fopen("read.txt", "r");
+    fp = fopen("data.txt", "r");
     char frame[256];
     char buffer[256];
     int row_num = line_length();
+    printf("%d\n",row_num);
     data = (struct Zipcode_data *)malloc(sizeof(struct Zipcode_data)*row_num);
     
 
@@ -81,4 +82,3 @@ int main()
     fclose(fp);
     free(data);
 }
-
