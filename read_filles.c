@@ -9,16 +9,16 @@ struct Zipcode_data
 {
     char zipcode[10];
     char d[50];
-    char d_eng[50];
-    char c[20];
-    char c_eng[20];
+    char d_eng[70];
+    char c[6];
+    char c_eng[70];
 
 };
 
 //-------------------------------------------------------------------------
 int line_length(){
    FILE *fp;
-   fp = fopen("read.txt", "r");
+   fp = fopen("data.txt", "r");
    char tmp;
    int cnt = 1;
 
