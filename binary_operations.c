@@ -35,8 +35,9 @@ int *dec_to_bin(int num) {
 
 int *key_value(int num) {
     static int array2[12] = {0,0,0,0,0,0,0,0,0,0,0,0};
-    static int array2[12] = {0,0,0,0,0,0,0,0,0,0,0,0};
+    
     int cnt = div_number(num);
+    printf("%d\n",cnt);
     int cnt2 = cnt + 1;
     for (int i = 0; i < cnt2; i++)
     {
@@ -82,8 +83,6 @@ int bin_to_dec(int arr[]) {
         sum = sum + pow(2,11-i)* arr[i];
     }
     
-    
-    printf("\n%d isisis",sum);
     return sum;
     
 }
