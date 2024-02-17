@@ -118,19 +118,33 @@ int main()
         char **add_p = address_parsing((data+i)->address);
         printf("%s\n",add_p[2]);
 
+        int time2[12] = {0,0,0,0,0,0,0,0,0,0,0,0};
+        
         int *time = dec_to_bin(time_p[3]*100 + time_p[4]);
+        
         for (int j = 0; j < 12; j++) {
             printf("%d", time[j]);
+            time2[j] = time[j];
+        }
+        for (int j = 0; j < 12; j++) {
+            time[j] = 0;
         }
         printf("\n");
 
+        //int *key[12] = {0,0,0,0,0,0,0,0,0,0,0,0};
+        int key2[12] = {0,0,0,0,0,0,0,0,0,0,0,0};
         int *key = key_value(time_p[5]);
         for (int j = 0; j < 12; j++) {
             printf("%d", key[j]);
+            key2[j] = key[j];
+        }
+        
+        for (int j = 0; j < 12; j++) {
+            key[j] = 0;
         }
         printf("\n");
 
-        int *process = xor_process(time, key);
+        int *process = xor_process(time2, key2);
         for (int j = 0; j < 12; j++) {
             printf("%d", process[j]);
         }
