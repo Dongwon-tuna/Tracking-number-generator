@@ -9,5 +9,12 @@
 
 ### 기능 4
 
-<br>
+gcc -c binary_operations.c -o binary_operations.o
+gcc -c main.c -o main.o
+
+gcc -o myprogram main.o binary_operations.o
+
+./myprogram
+
+
 
