@@ -54,21 +54,17 @@ int *time_parsing(char time[]){
 }
 
 //-----------------------------------------------------------------------------
-const char *address_parsing(char add[]){
+char **address_parsing(char add[]){
     char *ptr = strtok(add," ");
     static char *add_arr[10];
     int cnt = 0;
     while (ptr != NULL)
     {
-        //printf("%s\n",ptr);
         add_arr[cnt]= ptr ;
-        //printf("%s\n",add_arr[cnt]);
         ptr = strtok(NULL," ");
         cnt ++;
     }
-    printf("%s",add_arr[3]);
-    return *add_arr;
-    
+    return add_arr;
 }
 //-----------------------------------------------------------------------------
 int main()
@@ -115,9 +111,9 @@ int main()
         printf("1: %s 2: %s 3: %s 4: %s 5: %s\n",(data+i)->Id,(data+i)->time, (data+i)->address, (data+i)->zipcode,(data+i)->etc);
     
         int *time_p = time_parsing((data+i)->time);
-        printf("%d\n",time_p[3]*100 + time_p[4]);
-        char *add_p = address_parsing((data+i)->address);
-        printf("%s",add_p[1]);
+        printf("%d, %d\n",time_p[3]*100 + time_p[4],time_p[5]);
+        char **add_p = address_parsing((data+i)->address);
+        printf("%s\n",add_p[2]);
     
     }
 
