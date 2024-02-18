@@ -119,9 +119,7 @@ int main()
         printf("%s\n",add_p[2]);
 
         int time2[12] = {0,0,0,0,0,0,0,0,0,0,0,0};
-        
         int *time = dec_to_bin(time_p[3]*100 + time_p[4]);
-        
         for (int j = 0; j < 12; j++) {
             printf("%d", time[j]);
             time2[j] = time[j];
@@ -131,7 +129,6 @@ int main()
         }
         printf("\n");
 
-        //int *key[12] = {0,0,0,0,0,0,0,0,0,0,0,0};
         int key2[12] = {0,0,0,0,0,0,0,0,0,0,0,0};
         int *key = key_value(time_p[5]);
         for (int j = 0; j < 12; j++) {
