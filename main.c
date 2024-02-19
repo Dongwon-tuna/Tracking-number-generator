@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------
 struct Zipcode_data
 {
-    char Id[10];
+    char Id[30];
     char time[50];
     char address[70];
     char zipcode[6];
@@ -68,6 +68,37 @@ char **address_parsing(char add[]){
     return add_arr;
 }
 //-----------------------------------------------------------------------------
+void idparse(char id[],char re[]){
+    int cnt = strlen(id);
+    printf("%d\n",cnt);
+    int oe2 = cnt/2;
+
+    re[0] = id[0];
+    re[1] = id[oe2];
+    re[2] = id[cnt-1];
+    re[3] = '\0';
+}
+//-----------------------------------------------------------------------------
+void ASCII(char input, char input2, char input3, char output[3],char output2[3], char output3[3]){
+    sprintf(output,"%02x",input);
+    sprintf(output2,"%02x",input2);
+    sprintf(output3,"%02x",input3);
+}
+
+//-----------------------------------------------------------------------------
+void sido(char sido[]){
+    //우선은 천안지역 택배번호 생성기이기에 충청남도 천안시 서북구/봉정로 기준으로 작성함
+    //추후에 대한민국 행정지역별로 분류하여 보완할 계획
+    printf("%s",sido);
+    const char *str1 = "충청남도";
+    if(strcmp(str1,sido)==0){
+        printf("same\n");
+    }
+    else{
+        printf("diff\n");
+    }
+}
+//-----------------------------------------------------------------------------
 int main()
 {
     struct Zipcode_data *data;
@@ -112,11 +143,19 @@ int main()
     for (int i = 0; i < row_num; i++)
     {
         printf("1: %s 2: %s 3: %s 4: %s 5: %s\n",(data+i)->Id,(data+i)->time, (data+i)->address, (data+i)->zipcode,(data+i)->etc);
-    
+        char idarr[4];
+        char hex[3];
+        char hex2[3];
+        char hex3[3];
         int *time_p = time_parsing((data+i)->time);
         printf("%d, %d\n",time_p[3]*100 + time_p[4],time_p[5]);
         char **add_p = address_parsing((data+i)->address);
+        idparse((data+i)->Id,idarr);
+        printf("%s\n",idarr);
+        ASCII(idarr[0],idarr[1],idarr[2],hex,hex2,hex3);
+        printf("%s%s%s",hex,hex2,hex3);
         printf("%s\n",add_p[2]);
+        sido(add_p[0]);
 
         int time2[12] = {0,0,0,0,0,0,0,0,0,0,0,0};
         int *time = dec_to_bin(time_p[3]*100 + time_p[4]);
