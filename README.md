@@ -13,7 +13,7 @@ During the winter vacation I worked in Coupang Cheonan HUB. Through the above ex
 ![11](https://github.com/Dongwon-tuna/Tracking-number-generator/assets/61178312/fcbf697b-8e42-4629-9bca-58eed7752c47)
 
 
-
+Korean address is based on the road. For example, my house is next to Bongjeong road. At this road, there are 400 houses and my house is 365th. According to this my address is "365, Bonjeong-ro"(-ro means road). When the delivery system is activated on this kind of address there are some kinds of problems. First, It might cause traffic jams because of delivery car. Second, many of residential spaces are aprtment. Korean address is based on road, so using address only for delivery is inefficient. As you can see pictures above, that kind of district is much more efficient in delivery system. That kind of distriction is based on Korean zipcode. This is the reason why The Tracking Number Generator is based on Korea zipcode system.
 
 ## Getting Started / 어떻게 시작하나요?
 
