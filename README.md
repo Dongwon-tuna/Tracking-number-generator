@@ -41,7 +41,7 @@ gcc -o generator main.o binary_operations.o parson.o
 ```
 
 ```
-./ generator
+./generator
 ```
 
 ### Installing / 설치
