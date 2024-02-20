@@ -10,6 +10,8 @@ During the winter vacation I worked in Coupang Cheonan HUB. Through the above ex
 ### 1. Delivery is based on South Korea zipcode system / 대한민국의 우편번호를 기반으로 한 배송 시스템
 
 
+![Uploading 11.PNG…]()
+
 
 
 ## Getting Started / 어떻게 시작하나요?
