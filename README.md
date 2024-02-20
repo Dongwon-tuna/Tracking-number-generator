@@ -7,7 +7,8 @@ During the winter vacation I worked in Coupang Cheonan HUB. Through the above ex
 
 ## Explanation about Tracking Number Generator / 택배 운송장번호 생성기에 관한 설명
 
-### 1. Delivery system is based on South Korea Zipcode / 대한민국의 우편번호를 기반으로 한 배송 시스템
+### 1. Delivery is based on South Korea zipcode system / 대한민국의 우편번호를 기반으로 한 배송 시스템
+
 
 
 
@@ -15,7 +16,7 @@ During the winter vacation I worked in Coupang Cheonan HUB. Through the above ex
 
 
 
-Do this works in order in the terminal. / 다음 순서에 따라서 터미널에서 프로그램을 실행시켜 주세요.
+Do this works in order at the terminal. / 다음 순서에 따라서 터미널에서 프로그램을 실행시켜 주세요.
 
 ```
 gcc -c binary_operations.c -o binary_operations.o
