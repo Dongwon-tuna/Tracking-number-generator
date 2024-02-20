@@ -11,11 +11,13 @@
 
 gcc -c binary_operations.c -o binary_operations.o
 
+gcc -c parson.c -o parson.o
+
 gcc -c main.c -o main.o
 
-gcc -o myprogram main.o binary_operations.o
+gcc -o generator main.o binary_operations.o parson.o
 
-./myprogram
+./ generator
 
 
 
