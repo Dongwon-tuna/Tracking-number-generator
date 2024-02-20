@@ -7,14 +7,29 @@ During the winter vacation I worked in Coupang Cheonan HUB. Through the above ex
 
 ## Getting Started / 어떻게 시작하나요?
 
-이 곳에서 설치에 관련된 이야기를 해주시면 좋습니다.
 
 ### Prerequisites / 선행 조건
 
-아래 사항들이 설치가 되어있어야합니다.
+Do this works in order in the terminal / 다음 순서에 따라서 터미널에서 프로그램을 실행시켜 주세요
 
 ```
-예시
+gcc -c binary_operations.c -o binary_operations.o
+```
+
+```
+gcc -c parson.c -o parson.o
+```
+
+```
+gcc -c main.c -o main.o
+```
+
+```
+gcc -o generator main.o binary_operations.o parson.o
+```
+
+```
+./ generator
 ```
 
 ### Installing / 설치
