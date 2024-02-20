@@ -17,9 +17,14 @@ Korean address is based on the road. For example, my house is next to Bongjeong 
 
 
 ### 2. Making unique tracking number / 중복되지 않는 유일한 운송장번호를 만드는 법 
-Through the Korean zipcode basaed distriction, there are almost 10,000 pepoles lived in my distriction. Through the population density and my assumption, the maximum population of one distriction might be 20,000. On average there are 100 parcel out of 1000 people. This statistic is based on my Coupang HUB experience and my colleague's. To avoid making same tracking number, there might be 2000 different codes required. So I bring 3 charcter from user's id(first,middle,last one) and changed in hexademical numbers in ASCII. Also using the time stamp of payment record.
+Through the Korean zipcode based distriction, there are almost 10,000 pepoles lived in my distriction. Through the population density and my assumption, the maximum population of one distriction might be 20,000. On average there are 100 parcel out of 1000 people. This statistic is based on my Coupang HUB experience and my colleague's. To avoid making same tracking number, there might be 2000 different codes required. So I bring 3 charcter from user's id(first,middle,last one) and changed in hexademical numbers in ASCII. Also using the time stamp of payment record.
 
-![번호](https://github.com/Dongwon-tuna/Tracking-number-generator/assets/61178312/26cfb705-5ecf-40e7-84bc-63c1f52e8c38)
+![번호수정](https://github.com/Dongwon-tuna/Tracking-number-generator/assets/61178312/e9b7901d-9aa7-4bd4-9503-459d0b03e6e9)
+1 is the number using the time stamp of payment record. This information is kind of privacy, so I tried to encrypt this information. I used XOR(eXclusive OR) for encryption. If you didn't know about XOR or XOR encryption, please refer to the picture below.
+
+![암호화](https://github.com/Dongwon-tuna/Tracking-number-generator/assets/61178312/65275d37-936d-4611-a7bd-741bc5b2a7c3)
+
+I'm gonna use 2025_03_13_03_03_00(YYYY_MM_DD_HH_MM_SS) for example. First 03:03time) is changed in to int 2359. 2359 changed in to 12 binary nuber as 100100110111. XOR encryption need key value, so i use second as key value.
 
 ## Getting Started / 어떻게 시작하나요?
 
