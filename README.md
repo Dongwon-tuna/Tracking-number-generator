@@ -5,12 +5,17 @@ During the winter vacation I worked in Coupang Cheonan HUB. Through the above ex
 
 겨울방학동안 쿠팡 천안 허브에서 일을 했고 이를 통하여 운송 사업에 관하여 관심이 생겼다. 그래서 나만의 운송 시스템을 구축해보고 싶다는 생각이 들었고, 택배 운송장번호 생성기는 그 프로젝의 첫 걸음이다.
 
+## Explanation about Tracking Number Generator / 택배 운송장번호 생성기에 관한 설명
+
+### 1. Delivery system is based on South Korea Zipcode / 대한민국의 우편번호를 기반으로 한 배송 시스템
+
+
+
 ## Getting Started / 어떻게 시작하나요?
 
 
-### Prerequisites / 선행 조건
 
-Do this works in order in the terminal / 다음 순서에 따라서 터미널에서 프로그램을 실행시켜 주세요
+Do this works in order in the terminal. / 다음 순서에 따라서 터미널에서 프로그램을 실행시켜 주세요.
 
 ```
 gcc -c binary_operations.c -o binary_operations.o
