@@ -1,8 +1,8 @@
-#pragma warning(disable :4996)
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include "binary_operations.h"
+#include "parson.h"
 #define MAX_FIELDS 30  
 
 
@@ -16,7 +16,6 @@ struct Zipcode_data
     char etc[70];
 
 };
-
 //-------------------------------------------------------------------------
 int line_length(){
    FILE *fp;
@@ -35,7 +34,6 @@ int line_length(){
    
    return cnt; 
 }
-
 //----------------------------------------------------------------------------
 int *time_parsing(char time[]){
 
@@ -53,7 +51,6 @@ int *time_parsing(char time[]){
     return time_arr;
     
 }
-
 //-----------------------------------------------------------------------------
 char **address_parsing(char add[]){
     char *ptr = strtok(add," ");
@@ -70,7 +67,6 @@ char **address_parsing(char add[]){
 //-----------------------------------------------------------------------------
 void idparse(char id[],char re[]){
     int cnt = strlen(id);
-    printf("%d\n",cnt);
     int oe2 = cnt/2;
 
     re[0] = id[0];
@@ -86,17 +82,38 @@ void ASCII(char input, char input2, char input3, char output[3],char output2[3],
 }
 
 //-----------------------------------------------------------------------------
-void sido(char sido[]){
-    //우선은 천안지역 택배번호 생성기이기에 충청남도 천안시 서북구/봉정로 기준으로 작성함
-    //추후에 대한민국 행정지역별로 분류하여 보완할 계획
-    printf("%s",sido);
-    const char *str1 = "충청남도";
-    if(strcmp(str1,sido)==0){
-        printf("same\n");
+char* generateDeliveryCode(const char *sido, const char *sigun, const char *gu) {
+    static char sido_code[6];  
+    static char sigungu_code[3]; 
+    const char *str1 = "충청남도"; // 충남의 시/도 코드는 12
+    const char *str2 = "천안시";
+    const char *str3 = "서북구";    // 천안시 서북구의 시/군/구 코드는 56
+    const char *str4 = "동남구";    // 천안시 동남구의 시/군/구 코드는 57
+
+    if (strcmp(str1, sido) == 0) {
+        strcpy(sido_code, "12");
     }
-    else{
-        printf("diff\n");
+    if (strcmp(str2, sigun) == 0) {
+        if (strcmp(str3, gu) == 0) {
+            strcpy(sigungu_code, "56");
+        } else if (strcmp(str4, gu) == 0) {
+            strcpy(sigungu_code, "57");
+        }
     }
+    strcat(sido_code, sigungu_code);
+    return sido_code;
+}
+//-----------------------------------------------------------------------------
+void createAndAppendJSON(JSON_Array *mainArray, char* trackingNum, int key, char* address, char* note){
+    JSON_Value *rootValue = json_value_init_object();
+    JSON_Object *rootObject = json_value_get_object(rootValue);
+
+    json_object_set_string(rootObject, "Tracking Number", trackingNum);
+    json_object_set_number(rootObject, "Key", key);
+    json_object_set_string(rootObject, "Address", address);
+    json_object_set_string(rootObject, "Note", note);
+
+    json_array_append_value(mainArray, rootValue);
 }
 //-----------------------------------------------------------------------------
 int main()
@@ -108,10 +125,10 @@ int main()
     char frame[256];
     char buffer[256];
     int row_num = line_length();
-    printf("%d\n",row_num);
     data = (struct Zipcode_data *)malloc(sizeof(struct Zipcode_data)*row_num);
+    JSON_Value *mainValue = json_value_init_array();
+    JSON_Array *mainArray = json_value_get_array(mainValue);
     
-
     while (fgets(buffer, 256, fp))
     {
         
@@ -144,54 +161,56 @@ int main()
     {
         printf("1: %s 2: %s 3: %s 4: %s 5: %s\n",(data+i)->Id,(data+i)->time, (data+i)->address, (data+i)->zipcode,(data+i)->etc);
         char idarr[4];
-        char hex[3];
+        char hex[16];
         char hex2[3];
         char hex3[3];
+        char tracking_number[20];
         int *time_p = time_parsing((data+i)->time);
-        printf("%d, %d\n",time_p[3]*100 + time_p[4],time_p[5]);
         char **add_p = address_parsing((data+i)->address);
         idparse((data+i)->Id,idarr);
-        printf("%s\n",idarr);
         ASCII(idarr[0],idarr[1],idarr[2],hex,hex2,hex3);
-        printf("%s%s%s",hex,hex2,hex3);
-        printf("%s\n",add_p[2]);
-        sido(add_p[0]);
+        char* result = generateDeliveryCode(add_p[0], add_p[1], add_p[2]);
+        printf("%s\n", result);
+
 
         int time2[12] = {0,0,0,0,0,0,0,0,0,0,0,0};
         int *time = dec_to_bin(time_p[3]*100 + time_p[4]);
         for (int j = 0; j < 12; j++) {
-            printf("%d", time[j]);
             time2[j] = time[j];
         }
         for (int j = 0; j < 12; j++) {
             time[j] = 0;
         }
-        printf("\n");
 
         int key2[12] = {0,0,0,0,0,0,0,0,0,0,0,0};
         int *key = key_value(time_p[5]);
         for (int j = 0; j < 12; j++) {
-            printf("%d", key[j]);
             key2[j] = key[j];
         }
         
         for (int j = 0; j < 12; j++) {
             key[j] = 0;
         }
-        printf("\n");
-
+   
         int *process = xor_process(time2, key2);
-        for (int j = 0; j < 12; j++) {
-            printf("%d", process[j]);
-        }
-        printf("\n");
         int decc = bin_to_dec(process);
-        printf("%d", decc);
+        char toChar[20];
+        sprintf(toChar,"%d", decc);
+        printf("%d\n", decc);
+        strncat(hex,hex2,2);
+        strncat(hex,hex3,2);
+        strncat(hex,result,4);
+        strncat(hex,(data+i)->zipcode,5);
+        strcat(toChar,hex);
+        printf("%s\n",toChar);
+        createAndAppendJSON(mainArray,toChar,time_p[5],(data+i)->address,(data+i)->etc);
         
     
     }
 
-    
+    json_serialize_to_file_pretty(mainValue, "trackingdata.json");  
+    json_value_free(mainValue); 
     fclose(fp);
     free(data);
+    return 0;
 }
