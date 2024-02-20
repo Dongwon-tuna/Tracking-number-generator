@@ -31,9 +31,15 @@ Through the Korean zipcode based distriction, there are almost 10,000 pepoles li
 
 I'm gonna use 2024_03_13_08_28_36(YYYY_MM_DD_HH_MM_SS) for example. First 08_28(HH_MM) is changed in to int 823, and changed in to 12 binary nuber as 001100111100. XOR encryption needs a key value, so i use 36(SS) as key value. 36 in binary is 100100. We need 12 binary number. So I flipped this 6 binary number and add to the original. 001001100100 is made and this is the key value. Using 001100111100 and key value 001001100100 for XOR encryption, 000101011000 is our new ciphertext. And then convert this binary to decimal, the First Red Box number **"344"** is generated.
 
-**2.** Second red box(**13**) is day.
+**2.** Second red box(**13**) is date.
 
 **3.** Third red box(**666d32**) is the 3 charcter from user's id(first,middle,last one) and changed in hexademical numbers in ASCII. If the length of the char is even, the middle value is 
-arr[length/2]. So
+arr[length/2]. According to the order information, ID is fkfxcmvn12, we choose "f" , "m" , "2" and these are converted int to "66" , "6d" , "32". 
 
+**4.** Fourth red box(**1257**) is information about korea administrative district. In this project, I only made tracking number about my hometown(365, Bongjeong-ro, Seobuk-gu, Cheonan-si, Chungcheongnam-do, Republic of Korea). **12** is the code of "Chungcheongnam-do". **57** is the code of "Dongman-gu, Cheonan-si". If some number is **1256**, 56 is "Seobuk-gu, Cheonan-si"
 
+The green area is "Seobuk-gu, Cheonan-si", gray area is "Dongman-gu, Cheonan-si". 
+
+![서북구](https://github.com/Dongwon-tuna/Tracking-number-generator/assets/61178312/ae6d42ca-9d1f-4ae2-9ac3-f3436b42efda)
+
+**5.** Fifth red box(**31102**) is zipcode number.
