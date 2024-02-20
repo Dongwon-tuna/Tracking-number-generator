@@ -36,10 +36,14 @@ I'm gonna use 2024_03_13_08_28_36(YYYY_MM_DD_HH_MM_SS) for example. First 08_28(
 **3.** Third red box(**666d32**) is the 3 charcter from user's id(first,middle,last one) and changed in hexademical numbers in ASCII. If the length of the char is even, the middle value is 
 arr[length/2]. According to the order information, ID is fkfxcmvn12, we choose "f" , "m" , "2" and these are converted int to "66" , "6d" , "32". 
 
-**4.** Fourth red box(**1257**) is information about korea administrative district. In this project, I only made tracking number about my hometown(365, Bongjeong-ro, Seobuk-gu, Cheonan-si, Chungcheongnam-do, Republic of Korea). **12** is the code of "Chungcheongnam-do". **57** is the code of "Dongman-gu, Cheonan-si". If some number is **1256**, 56 is "Seobuk-gu, Cheonan-si"
+**4.** Fourth red box(**1257**) is information about korea administrative district. In this project, I only made tracking number about my hometown(365, Bongjeong-ro, Seobuk-gu, Cheonan-si, Chungcheongnam-do, Republic of Korea). **12** is the code of "Chungcheongnam-do". **57** is the code of "Dongman-gu, Cheonan-si". If some number is **1256**, **56** is "Seobuk-gu, Cheonan-si"
 
 The green area is "Seobuk-gu, Cheonan-si", gray area is "Dongman-gu, Cheonan-si". 
 
 ![서북구](https://github.com/Dongwon-tuna/Tracking-number-generator/assets/61178312/ae6d42ca-9d1f-4ae2-9ac3-f3436b42efda)
 
 **5.** Fifth red box(**31102**) is zipcode number.
+
+
+### 3. Waybill Standardization / 운송장 표준화
+
