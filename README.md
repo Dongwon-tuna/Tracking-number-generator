@@ -18,6 +18,7 @@ Korean address is based on the road. For example, my house is next to Bongjeong 
 
 ### 2. Making unique tracking number / 중복되지 않는 유일한 운송장번호를 만드는 법 
 Through the Korean zipcode basaed distriction, there are almost 10,000 pepoles lived in my distriction. Through the population density and my assumption, the maximum population of one distriction might be 20,000. On average there are 100 parcel out of 1000 people. This statistic is based on my Coupang HUB experience and my colleague's. To avoid making same tracking number, there might be 2000 different codes required. So I bring 3 charcter from user's id(first,middle,last one) and changed in hexademical numbers in ASCII. Also using the time stamp of payment record.
+
 ![번호](https://github.com/Dongwon-tuna/Tracking-number-generator/assets/61178312/26cfb705-5ecf-40e7-84bc-63c1f52e8c38)
 
 ## Getting Started / 어떻게 시작하나요?
