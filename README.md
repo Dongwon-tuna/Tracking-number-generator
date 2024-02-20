@@ -1,7 +1,7 @@
 # Tracking-number-generator
 ## Cheonan-si package tracking number generator.
 
-### 기능 1: XOR 연산의 특징을 활용한 개인정보 암호화
+### 개발동기 : 방학동안 쿠팡 HUB에서 뛰고 구르며 택배와 관련하여 관심이 생겼음. 그래서  C를 복습할 겸 나만의 택배 송장 번호 생성기를 만들고 싶었음
 
 ### 기능 2
 
