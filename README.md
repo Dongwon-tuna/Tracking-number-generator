@@ -21,7 +21,8 @@ Through the Korean zipcode based distriction, there are almost 10,000 pepoles li
 
 **Order information**![주문정보](https://github.com/Dongwon-tuna/Tracking-number-generator/assets/61178312/aa7ed693-42aa-480c-b822-62b689420468)
 
-**Tracking number**![번호수정](https://github.com/Dongwon-tuna/Tracking-number-generator/assets/61178312/e9b7901d-9aa7-4bd4-9503-459d0b03e6e9)
+**Tracking number**
+![번호수정](https://github.com/Dongwon-tuna/Tracking-number-generator/assets/61178312/e9b7901d-9aa7-4bd4-9503-459d0b03e6e9)
 
 **1.** First red box(**344**) is the number using the time stamp of payment record. This information is kind of privacy, so I tried to encrypt this information. I used XOR(eXclusive OR) for encryption. If you didn't know about XOR or XOR encryption, please refer to the picture below.
 
