@@ -25,5 +25,6 @@ First red box is the number using the time stamp of payment record. This informa
 
 ![암호화](https://github.com/Dongwon-tuna/Tracking-number-generator/assets/61178312/65275d37-936d-4611-a7bd-741bc5b2a7c3)
 
-I'm gonna use 2025_03_13_03_03_00(YYYY_MM_DD_HH_MM_SS) for example. First 03:03time) is changed in to int 2359. 2359 changed in to 12 binary nuber as 100100110111. XOR encryption need key value, so i use second as key value.
+I'm gonna use 2024_03_13_08_28_36(YYYY_MM_DD_HH_MM_SS) for example. First 08_28(HH_MM) is changed in to int 823, and changed in to 12 binary nuber as 001100111100. XOR encryption needs a key value, so i use 36(SS) as key value. 36 in binary is 100100. We need 12 binary number. So I flipped this 6 binary number and add to the original. 001001100100 is made and this is the key value. Using 001100111100 and key value 001001100100 for XOR encryption, 000101011000 is our new ciphertext. And then convert this binary to decimal, the First Red Box number"343" is generated.
+
 
