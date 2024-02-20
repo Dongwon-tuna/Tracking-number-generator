@@ -1,7 +1,7 @@
-# Project Title / 프로젝트 이름
+# Tracking Number Generator / 택배 운송장번호 생성기
 
-**[뱃지나 프로젝트에 관한 이미지들이 이 위치에 들어가면 좋습니다]**  
-One Paragraph of project description goes here / 프로젝트의 전반적인 내용에 대한 요약을 여기에 적습니다
+
+During the winter vacation I worked in coupang Cheonan HUB. Through the above experience I'm interested about transportation business. So i decided to make my own transportation systme. Tracking Nuber Generator is first step of my transportation system/ 겨울방학동안 쿠팡 천안 허브에서 일을 했고 이를 통하여 운송 사업에 관하여 관심이 생겼다. 그래서 나만의 운송 시스템을 구축해보고 싶다는 생각이 들었고, 택배 운송장번호 생성기는 그 사업의 첫 걸음이다.
 
 ## Getting Started / 어떻게 시작하나요?
 
