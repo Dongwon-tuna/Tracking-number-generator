@@ -164,7 +164,7 @@ int main()
         char hex[16];
         char hex2[3];
         char hex3[3];
-        char tracking_number[20];
+        
         int *time_p = time_parsing((data+i)->time);
         char **add_p = address_parsing((data+i)->address);
         idparse((data+i)->Id,idarr);
@@ -194,13 +194,16 @@ int main()
    
         int *process = xor_process(time2, key2);
         int decc = bin_to_dec(process);
-        char toChar[20];
+        char toChar[22];
+        char date[3];
         sprintf(toChar,"%d", decc);
+        sprintf(date,"%d",time_p[2]);
         printf("%d\n", decc);
         strncat(hex,hex2,2);
         strncat(hex,hex3,2);
         strncat(hex,result,4);
         strncat(hex,(data+i)->zipcode,5);
+        strcat(toChar,date);
         strcat(toChar,hex);
         printf("%s\n",toChar);
         createAndAppendJSON(mainArray,toChar,time_p[5],(data+i)->address,(data+i)->etc);
