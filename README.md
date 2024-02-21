@@ -49,6 +49,9 @@ The green area is "Seobuk-gu, Cheonan-si", gray area is "Dongman-gu, Cheonan-si"
 
 ### 3. Waybill Standardization / 운송장 표준화
 
+![shipping_label_with_qr](https://github.com/Dongwon-tuna/Tracking-number-generator/assets/61178312/f8cbbdf9-6013-400a-9297-2be66114f3be)
+
+Korean didn't works in here...find out the reason...
 
 ```
 gcc -c binary_operations.c -o binary_operations.o
