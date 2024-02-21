@@ -9,9 +9,7 @@ During the winter vacation I worked in Coupang Cheonan HUB. Through the above ex
 
 ### 1. Based on South Korea zipcode system / 대한민국의 우편번호를 기반으로 한 배송 시스템
 
-```
-예시
-```
+
 
 
 ![11](https://github.com/Dongwon-tuna/Tracking-number-generator/assets/61178312/fcbf697b-8e42-4629-9bca-58eed7752c47)
@@ -51,3 +49,20 @@ The green area is "Seobuk-gu, Cheonan-si", gray area is "Dongman-gu, Cheonan-si"
 
 ### 3. Waybill Standardization / 운송장 표준화
 
+
+```
+gcc -c binary_operations.c -o binary_operations.o
+```
+```
+gcc -c parson.c -o parson.h
+```
+```
+gcc -c main.c -o main.o
+```
+```
+gcc -o generator main.o parson.o binary_operations.o
+```
+
+```
+./generator
+```
